@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#071f3b" />
+    <meta
+      name="description"
+      content="A unified policy for fault-tolerant quadrupedal locomotion across rough terrains."
+    />
+    <meta property="og:title" content="Learning Fault-tolerant Quadrupedal Locomotion in Rough Terrains" />
+    <meta property="og:description" content="One policy. Diverse terrains. Multiple joint failures." />
+    <meta property="og:image" content="assets/images/hero.jpg" />
+    <title>Fault-tolerant Quadrupedal Locomotion</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="nav-shell">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="#top" aria-label="Back to top">
+          <span class="brand-mark">RPA</span>
+          <span class="brand-text">Fault-Tolerant Locomotion</span>
+        </a>
+        <div class="nav-links">
+          <a href="#method">Method</a>
+          <a href="#results">Results</a>
+          <a href="#real-world">Real robot</a>
+          <a class="nav-paper" href="assets/paper/paper.pdf">Paper ↗</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-glow hero-glow-one"></div>
+        <div class="hero-glow hero-glow-two"></div>
+        <div class="hero-copy reveal">
+          <p class="eyebrow"><span></span> Under review · 2026</p>
+          <h1>Learning Fault-tolerant Quadrupedal Locomotion in <em>Rough Terrains</em></h1>
+          <p class="hero-summary">
+            A single blind-locomotion policy that adapts to normal, single-joint, and selected
+            diagonal two-joint failures—across deformable, uneven, moving, and stair terrains.
+          </p>
+          <p class="authors">Anonymous Authors</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="assets/paper/paper.pdf">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h9l5 5v15H6zM14 3v5h5M9 13h8M9 17h6"/></svg>
+              Read paper
+            </a>
+            <a class="button button-secondary" href="#real-world">
+              Explore results <span>↓</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal">
+          <figure class="hero-frame">
+            <img src="assets/images/hero.jpg" alt="Unitree Go2 traversing four challenging real-world terrains" />
+            <figcaption>
+              <span class="live-dot"></span>
+              Zero-shot sim-to-real · Unitree Go2
+            </figcaption>
+          </figure>
+          <div class="terrain-chips" aria-label="Tested terrains">
+            <span>Deformable</span><span>Stairs</span><span>Dynamic</span><span>Uneven</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="statement section-pad reveal">
+        <p class="kicker">The central idea</p>
+        <h2>Spend training where the policy struggles.</h2>
+        <p>
+          Reward-Aware Population Allocation dynamically moves parallel environments toward
+          lower-performing terrain and failure categories, producing balanced recovery behavior
+          instead of over-training the easy cases.
+        </p>
+      </section>
+
+      <section class="metrics-wrap section-pad" aria-label="Key results">
+        <div class="metrics">
+          <article class="metric reveal">
+            <p class="metric-value">0.127<span>3</span></p>
+            <p class="metric-label">Overall tracking RMSE</p>
+            <p class="metric-note">55% lower than Masking</p>
+          </article>
+          <article class="metric reveal">
+            <p class="metric-value">98.2<span>%</span></p>
+            <p class="metric-label">Fault-state accuracy</p>
+            <p class="metric-note">With BCE classification</p>
+          </article>
+          <article class="metric reveal">
+            <p class="metric-value">12.5<span>→0.5</span></p>
+            <p class="metric-label">Return spread</p>
+            <p class="metric-note">Across failure categories</p>
+          </article>
+          <article class="metric reveal">
+            <p class="metric-value">1<span> policy</span></p>
+            <p class="metric-label">Unified controller</p>
+            <p class="metric-note">No policy switching</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="method" class="section-pad content-section">
+        <div class="section-heading reveal">
+          <p class="kicker">Method</p>
+          <h2>A unified framework for diverse failures and terrains</h2>
+          <p>
+            The framework combines condition generation, adaptive population allocation, and
+            history-based failure-aware policy conditioning.
+          </p>
+        </div>
+
+        <figure class="paper-figure wide-figure reveal">
+          <img src="assets/images/framework.jpg" alt="Overview of the proposed training framework" loading="lazy" />
+        </figure>
+
+        <div class="method-grid">
+          <article class="method-card reveal">
+            <span class="card-index">01</span>
+            <h3>Generate</h3>
+            <p>Combine normal, single-joint, and diagonal two-joint torque-loss conditions with diverse terrain families.</p>
+          </article>
+          <article class="method-card reveal">
+            <span class="card-index">02</span>
+            <h3>Reallocate</h3>
+            <p>Independently assign more environments to failure and terrain categories with lower returns.</p>
+          </article>
+          <article class="method-card reveal">
+            <span class="card-index">03</span>
+            <h3>Infer &amp; adapt</h3>
+            <p>Estimate body velocity and joint-failure states from proprioceptive history to condition one actor.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="rpa-band">
+        <div class="section-pad split-layout">
+          <div class="split-copy reveal">
+            <p class="kicker kicker-light">Reward-Aware Population Allocation</p>
+            <h2>Equal sampling does not mean equal learning.</h2>
+            <p>
+              Training conditions have different levels of difficulty. RPA converts category
+              returns into target population ratios, giving difficult conditions more experience
+              while preventing already-solved cases from dominating the budget.
+            </p>
+            <div class="formula" aria-label="RPA priority and target ratio equations">
+              <span>d<sub>i</sub> = g<sub>i</sub> / (α<sub>i</sub>R̄<sub>i</sub> + ε)</span>
+              <span>p<sub>i</sub> = d<sub>i</sub> / Σd<sub>k</sub></span>
+            </div>
+          </div>
+          <figure class="rpa-figure reveal">
+            <img src="assets/images/rpa.jpg" alt="Reward-Aware Population Allocation illustration" loading="lazy" />
+          </figure>
+        </div>
+      </section>
+
+      <section id="results" class="section-pad content-section">
+        <div class="section-heading reveal">
+          <p class="kicker">Simulation results</p>
+          <h2>Consistency where the terrain becomes difficult</h2>
+          <p>
+            The policy keeps tracking error in a narrow range across joint locations and maintains
+            locomotion on discontinuous terrains where comparison methods degrade.
+          </p>
+        </div>
+
+        <div class="result-summary">
+          <figure class="paper-figure reveal">
+            <img src="assets/images/simulation.jpg" alt="Simulation performance across commands" loading="lazy" />
+            <figcaption>Tracking and recovery behavior in simulation.</figcaption>
+          </figure>
+          <div class="result-table reveal">
+            <div class="table-title">
+              <span>Average RMSE at 1 m/s</span>
+              <span>Lower is better</span>
+            </div>
+            <div class="table-row table-head"><span>Condition</span><span>Baseline</span><span>Ours</span></div>
+            <div class="table-row"><span>Normal</span><span>0.4704</span><strong>0.2298</strong></div>
+            <div class="table-row"><span>Single-joint loss</span><span>0.9551</span><strong>0.2616</strong></div>
+            <div class="table-row"><span>Diagonal two-joint</span><span>—</span><strong>0.3109</strong></div>
+            <p class="table-note">A single actor is used for every condition without switching to a failure-specific controller.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="real-world" class="real-section">
+        <div class="section-pad">
+          <div class="section-heading heading-light reveal">
+            <p class="kicker kicker-light">Real-robot validation</p>
+            <h2>From simulation to uncertain contact</h2>
+            <p>
+              Deployed on a Unitree Go2 without additional real-robot training. Each sequence shows
+              locomotion under representative joint torque-loss conditions.
+            </p>
+          </div>
+
+          <div class="experiment-grid">
+            <article class="experiment-card reveal">
+              <img src="assets/images/rubber.jpg" alt="Robot crossing a deformable rubber surface" loading="lazy" />
+              <div><span>01</span><h3>Deformable surface</h3><p>Compliant, changing local contact</p></div>
+            </article>
+            <article class="experiment-card reveal">
+              <img src="assets/images/planks.jpg" alt="Robot crossing uneven wooden planks" loading="lazy" />
+              <div><span>02</span><h3>Uneven wooden planks</h3><p>Abrupt foothold-height changes</p></div>
+            </article>
+            <article class="experiment-card reveal">
+              <img src="assets/images/seesaw.jpg" alt="Robot traversing a dynamic seesaw" loading="lazy" />
+              <div><span>03</span><h3>Dynamic seesaw</h3><p>Contact-driven platform motion</p></div>
+            </article>
+            <article class="experiment-card reveal">
+              <img src="assets/images/stairs.jpg" alt="Robot climbing outdoor stairs" loading="lazy" />
+              <div><span>04</span><h3>Outdoor stairs</h3><p>Discontinuous terrain in the wild</p></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="abstract" class="section-pad abstract-section">
+        <div class="abstract-label reveal"><span>Abstract</span></div>
+        <div class="abstract-copy reveal">
+          <p>
+            Quadrupedal robots increasingly operate where human access is difficult or dangerous,
+            yet even a single joint failure can severely restrict mobility on uneven terrain. We
+            present a unified framework for blind locomotion across diverse terrains under normal,
+            single-joint, and selected diagonal two-joint failure conditions. Reward-Aware
+            Population Allocation dynamically reallocates failure and terrain populations according
+            to category returns, focusing training on difficult conditions. A history-based state
+            estimator infers body velocity and joint-failure states and conditions a unified policy
+            on these estimates. Simulation and real-robot experiments demonstrate locomotion on
+            deformable, uneven, moving, and stair terrains without additional real-robot training.
+          </p>
+        </div>
+      </section>
+
+      <section class="section-pad citation-section">
+        <div class="citation-heading reveal">
+          <p class="kicker">Citation</p>
+          <h2>BibTeX</h2>
+        </div>
+        <div class="citation-box reveal">
+          <button id="copy-citation" type="button" aria-label="Copy BibTeX">Copy</button>
+          <pre><code id="bibtex">@article{anonymous2026faulttolerant,
+  title   = {Learning Fault-tolerant Quadrupedal Locomotion in Rough Terrains},
+  author  = {Anonymous Authors},
+  year    = {2026},
+  note    = {Under Review}
+}</code></pre>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Learning Fault-tolerant Quadrupedal Locomotion in Rough Terrains</p>
+      <p>Research project page · 2026</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
