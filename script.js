@@ -21,6 +21,22 @@ if (reducedMotion) {
 const copyButton = document.querySelector('#copy-citation');
 const bibtex = document.querySelector('#bibtex');
 
+const videoObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      const video = entry.target;
+      if (entry.isIntersecting) {
+        video.play().catch(() => {});
+      } else {
+        video.pause();
+      }
+    });
+  },
+  { rootMargin: '160px 0px', threshold: 0.15 },
+);
+
+document.querySelectorAll('.result-video').forEach((video) => videoObserver.observe(video));
+
 copyButton?.addEventListener('click', async () => {
   try {
     await navigator.clipboard.writeText(bibtex.textContent);
