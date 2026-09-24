@@ -269,6 +269,44 @@
           </div>
         </div>
 
+        <div class="data-evidence">
+          <div class="evidence-heading reveal">
+            <div>
+              <p class="kicker">Released-data analysis</p>
+              <h3>155 evaluations. One consistent robustness profile.</h3>
+            </div>
+            <p>
+              We re-aggregated every complete terrain–failure trace in the released CSV data:
+              five non-flat terrains, twelve single-joint failures, and eighteen diagonal
+              two-joint failures. Every point below is shown—outliers included.
+            </p>
+          </div>
+
+          <div class="evidence-stats" aria-label="Released data summary">
+            <article class="reveal"><strong>155</strong><span>total evaluations</span><small>5 terrains × 31 conditions</small></article>
+            <article class="reveal"><strong>30</strong><span>fault configurations</span><small>12 single + 18 diagonal</small></article>
+            <article class="reveal"><strong>90.7%</strong><span>below 0.35 RMSE</span><small>136 of 150 faulted evaluations</small></article>
+            <article class="reveal"><strong>0.346</strong><span>faulted RMSE at P90</span><small>90% perform at or below this level</small></article>
+          </div>
+
+          <div class="evidence-plots">
+            <figure class="data-plot reveal">
+              <div class="plot-label"><span>01</span><strong>Every evaluation, not only the average</strong></div>
+              <img src="assets/images/data-rmse-distribution.svg" alt="Distribution of tracking RMSE for normal, single-joint, and diagonal two-joint conditions across 155 evaluations" loading="lazy" />
+              <figcaption>Dots are individual terrain–failure evaluations; dark marks show the median and 10th–90th percentile range.</figcaption>
+            </figure>
+            <figure class="data-plot reveal">
+              <div class="plot-label"><span>02</span><strong>Performance remains structured across terrain</strong></div>
+              <img src="assets/images/data-terrain-heatmap.svg" alt="Heatmap of median tracking RMSE by terrain and failure severity" loading="lazy" />
+              <figcaption>Median RMSE computed directly from the provided CSV footers. Lower is better.</figcaption>
+            </figure>
+          </div>
+
+          <p class="data-provenance reveal">
+            Source: <code>paper/data/rmse</code>. Flat-ground files use a different recording layout and are reported separately in the paper table above.
+          </p>
+        </div>
+
         <div class="sim-comparison">
           <div class="comparison-heading reveal">
             <div>

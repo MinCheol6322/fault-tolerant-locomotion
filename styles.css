@@ -192,6 +192,27 @@ section[id] { scroll-margin-top: 78px; }
 .table-head { color: #8397aa; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
 .table-note { margin: auto 0 0; padding-top: 28px; color: #91a4b7; font-size: 13px; line-height: 1.6; }
 
+.data-evidence { margin-top: 110px; padding-top: 95px; border-top: 1px solid var(--line); }
+.evidence-heading { display: grid; grid-template-columns: 1fr .8fr; gap: 70px; align-items: end; }
+.evidence-heading .kicker { margin-bottom: 14px; }
+.evidence-heading h3 { max-width: 660px; margin: 0; font: 700 clamp(29px, 3.7vw, 46px)/1.08 "Manrope", sans-serif; letter-spacing: -.04em; }
+.evidence-heading > p { margin: 0; color: var(--muted); line-height: 1.65; }
+.evidence-stats { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 38px; color: white; background: var(--navy); border-radius: 17px; }
+.evidence-stats article { display: grid; gap: 4px; padding: 25px 24px; border-right: 1px solid rgba(255,255,255,.11); }
+.evidence-stats article:last-child { border-right: 0; }
+.evidence-stats strong { color: var(--bright); font: 700 31px/1 "Manrope", sans-serif; letter-spacing: -.035em; }
+.evidence-stats span { margin-top: 7px; font-size: 13px; font-weight: 700; }
+.evidence-stats small { color: #8298ac; font-size: 10px; line-height: 1.45; }
+.evidence-plots { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; min-width: 0; margin-top: 18px; }
+.data-plot { min-width: 0; margin: 0; padding: 19px; overflow: hidden; background: white; border: 1px solid var(--line); border-radius: 17px; box-shadow: 0 14px 38px rgba(17,39,62,.05); }
+.plot-label { display: flex; align-items: center; gap: 10px; padding: 2px 2px 13px; }
+.plot-label span { display: grid; width: 25px; aspect-ratio: 1; place-items: center; color: var(--blue); background: #e9efea; border-radius: 50%; font: 700 9px/1 "Manrope", sans-serif; }
+.plot-label strong { font: 700 14px/1.25 "Manrope", sans-serif; }
+.data-plot img { width: 100%; max-width: 100%; min-height: 270px; object-fit: contain; }
+.data-plot figcaption { padding: 11px 3px 1px; color: var(--muted); border-top: 1px solid #edf0ed; font-size: 11px; line-height: 1.5; }
+.data-provenance { margin: 15px 3px 0; color: #7b8795; font-size: 11px; line-height: 1.5; }
+.data-provenance code { color: var(--blue); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+
 .sim-comparison { margin-top: 100px; }
 .comparison-heading { display: grid; grid-template-columns: 1fr .8fr; gap: 70px; align-items: end; margin-bottom: 30px; }
 .comparison-heading .kicker { margin-bottom: 14px; }
@@ -243,6 +264,11 @@ footer { display: flex; justify-content: space-between; gap: 20px; padding: 30px
   .method-grid { grid-template-columns: 1fr; }
   .rpa-figure { transform: none; }
   .comparison-heading { grid-template-columns: 1fr; gap: 20px; }
+  .evidence-heading { grid-template-columns: 1fr; gap: 20px; }
+  .evidence-stats { grid-template-columns: repeat(2, 1fr); }
+  .evidence-stats article:nth-child(2) { border-right: 0; }
+  .evidence-stats article:nth-child(-n+2) { border-bottom: 1px solid rgba(255,255,255,.11); }
+  .evidence-plots { grid-template-columns: 1fr; }
   .intro-section { gap: 22px; }
   .joint-study { grid-template-columns: 1fr; }
   .go2-overview { border-right: 0; border-bottom: 1px solid rgba(255,255,255,.1); }
@@ -268,6 +294,13 @@ footer { display: flex; justify-content: space-between; gap: 20px; padding: 30px
   .comparison-grid { grid-template-columns: 1fr; }
   .comparison-copy { display: block; }
   .comparison-copy p { margin-top: 5px; }
+  .data-evidence { margin-top: 76px; padding-top: 70px; }
+  .evidence-stats { grid-template-columns: 1fr; }
+  .evidence-stats article { border-right: 0; border-bottom: 1px solid rgba(255,255,255,.11); }
+  .evidence-stats article:nth-child(3) { border-bottom: 1px solid rgba(255,255,255,.11); }
+  .evidence-stats article:last-child { border-bottom: 0; }
+  .data-plot { padding: 13px; }
+  .data-plot img { height: auto; min-height: 0; }
   .fault-story { margin-top: 34px; }
   .story-topline span:last-child { display: none; }
   .go2-overview { padding: 20px; }
