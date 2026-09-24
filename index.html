@@ -29,9 +29,10 @@
           <span class="brand-text">Fault-Tolerant Locomotion</span>
         </a>
         <div class="nav-links">
+          <a href="#abstract">Abstract</a>
+          <a href="#introduction">Introduction</a>
           <a href="#method">Method</a>
           <a href="#results">Results</a>
-          <a href="#real-world">Real robot</a>
           <a class="nav-paper" href="assets/paper/paper.pdf">Paper ↗</a>
         </div>
       </nav>
@@ -74,38 +75,38 @@
         </div>
       </section>
 
-      <section class="statement section-pad reveal">
-        <p class="kicker">The central idea</p>
-        <h2>Spend training where the policy struggles.</h2>
-        <p>
-          Reward-Aware Population Allocation dynamically moves parallel environments toward
-          lower-performing terrain and failure categories, producing balanced recovery behavior
-          instead of over-training the easy cases.
-        </p>
+      <section id="abstract" class="section-pad abstract-section">
+        <div class="abstract-label reveal"><span>Abstract</span></div>
+        <div class="abstract-copy reveal">
+          <p>
+            Quadrupedal robots increasingly operate where human access is difficult or dangerous,
+            yet even a single joint failure can severely restrict mobility on uneven terrain. We
+            present a unified framework for blind locomotion across diverse terrains under normal,
+            single-joint, and selected diagonal two-joint failure conditions. Reward-Aware
+            Population Allocation dynamically reallocates failure and terrain populations according
+            to category returns, focusing training on difficult conditions. A history-based state
+            estimator infers body velocity and joint-failure states and conditions a unified policy
+            on these estimates. Simulation and real-robot experiments demonstrate locomotion on
+            deformable, uneven, moving, and stair terrains without additional real-robot training.
+          </p>
+        </div>
       </section>
 
-      <section class="metrics-wrap section-pad" aria-label="Key results">
-        <div class="metrics">
-          <article class="metric reveal">
-            <p class="metric-value">0.127<span>3</span></p>
-            <p class="metric-label">Overall tracking RMSE</p>
-            <p class="metric-note">55% lower than Masking</p>
-          </article>
-          <article class="metric reveal">
-            <p class="metric-value">98.2<span>%</span></p>
-            <p class="metric-label">Fault-state accuracy</p>
-            <p class="metric-note">With BCE classification</p>
-          </article>
-          <article class="metric reveal">
-            <p class="metric-value">12.5<span>→0.5</span></p>
-            <p class="metric-label">Return spread</p>
-            <p class="metric-note">Across failure categories</p>
-          </article>
-          <article class="metric reveal">
-            <p class="metric-value">1<span> policy</span></p>
-            <p class="metric-label">Unified controller</p>
-            <p class="metric-note">No policy switching</p>
-          </article>
+      <section id="introduction" class="intro-section section-pad reveal">
+        <p class="kicker">Introduction</p>
+        <div class="intro-body">
+          <h2>Failures get harder when the terrain does too.</h2>
+          <p>
+            A fixed training budget must cover many combinations of terrain and joint failures, but
+            those conditions do not learn at the same rate. Difficult cases such as stairs and
+            diagonal failures remain under-trained with uniform sampling. Our central idea is to
+            spend training where the policy struggles.
+          </p>
+          <div class="intro-points" aria-label="Problem summary">
+            <span>Multiple failure states</span>
+            <span>Uneven learning difficulty</span>
+            <span>One unified policy</span>
+          </div>
         </div>
       </section>
 
@@ -173,6 +174,31 @@
           </p>
         </div>
 
+        <div class="metrics-wrap" aria-label="Key results">
+          <div class="metrics">
+            <article class="metric reveal">
+              <p class="metric-value">0.127<span>3</span></p>
+              <p class="metric-label">Overall tracking RMSE</p>
+              <p class="metric-note">55% lower than Masking</p>
+            </article>
+            <article class="metric reveal">
+              <p class="metric-value">98.2<span>%</span></p>
+              <p class="metric-label">Fault-state accuracy</p>
+              <p class="metric-note">With BCE classification</p>
+            </article>
+            <article class="metric reveal">
+              <p class="metric-value">12.5<span>→0.5</span></p>
+              <p class="metric-label">Return spread</p>
+              <p class="metric-note">Across failure categories</p>
+            </article>
+            <article class="metric reveal">
+              <p class="metric-value">1<span> policy</span></p>
+              <p class="metric-label">Unified controller</p>
+              <p class="metric-note">No policy switching</p>
+            </article>
+          </div>
+        </div>
+
         <div class="result-summary">
           <figure class="paper-figure reveal">
             <img src="assets/images/simulation.jpg" alt="Simulation performance across commands" loading="lazy" />
@@ -229,23 +255,6 @@
               <div><span>04</span><h3>Outdoor stairs</h3><p>FL hip-roll + RR knee-pitch loss</p></div>
             </article>
           </div>
-        </div>
-      </section>
-
-      <section id="abstract" class="section-pad abstract-section">
-        <div class="abstract-label reveal"><span>Abstract</span></div>
-        <div class="abstract-copy reveal">
-          <p>
-            Quadrupedal robots increasingly operate where human access is difficult or dangerous,
-            yet even a single joint failure can severely restrict mobility on uneven terrain. We
-            present a unified framework for blind locomotion across diverse terrains under normal,
-            single-joint, and selected diagonal two-joint failure conditions. Reward-Aware
-            Population Allocation dynamically reallocates failure and terrain populations according
-            to category returns, focusing training on difficult conditions. A history-based state
-            estimator infers body velocity and joint-failure states and conditions a unified policy
-            on these estimates. Simulation and real-robot experiments demonstrate locomotion on
-            deformable, uneven, moving, and stair terrains without additional real-robot training.
-          </p>
         </div>
       </section>
 
