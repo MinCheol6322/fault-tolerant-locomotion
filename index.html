@@ -264,6 +264,84 @@
           </div>
         </div>
 
+        <div class="analysis-block" aria-labelledby="ablation-title">
+          <div class="comparison-heading reveal">
+            <div>
+              <p class="kicker">What makes it work</p>
+              <h3 id="ablation-title">Each component closes a different gap.</h3>
+            </div>
+            <p>
+              The ablation isolates the contribution of adaptive allocation, asymmetric training,
+              and explicit fault-state supervision. Values are reported directly from Tables IV–V.
+            </p>
+          </div>
+
+          <div class="analysis-grid">
+            <article class="analysis-card reveal">
+              <div class="analysis-card-head">
+                <div>
+                  <span>Ablation study</span>
+                  <h4>Overall tracking RMSE</h4>
+                </div>
+                <small>Lower is better ↓</small>
+              </div>
+              <div class="ablation-chart" role="img" aria-label="Overall RMSE decreases from 0.2831 with Masking to 0.1273 with all proposed components">
+                <div class="ablation-row">
+                  <div class="ablation-label"><span>Masking</span><strong>0.2831</strong></div>
+                  <div class="bar-track"><i style="--bar: 100%"></i></div>
+                </div>
+                <div class="ablation-row">
+                  <div class="ablation-label"><span>+ RPA</span><strong>0.2633</strong></div>
+                  <div class="bar-track"><i style="--bar: 93.0%"></i></div>
+                </div>
+                <div class="ablation-row">
+                  <div class="ablation-label"><span>+ AAC + RPA</span><strong>0.1652</strong></div>
+                  <div class="bar-track"><i style="--bar: 58.4%"></i></div>
+                </div>
+                <div class="ablation-row ablation-best">
+                  <div class="ablation-label"><span>Ours: AAC + BCE + RPA</span><strong>0.1273</strong></div>
+                  <div class="bar-track"><i style="--bar: 45.0%"></i></div>
+                </div>
+              </div>
+              <p class="analysis-note"><strong>55.0% lower RMSE</strong> than Masking with the complete framework.</p>
+            </article>
+
+            <article class="analysis-card classifier-card reveal">
+              <div class="analysis-card-head">
+                <div>
+                  <span>Fault-state estimator</span>
+                  <h4>BCE sharpens diagnosis</h4>
+                </div>
+                <small>Higher is better ↑</small>
+              </div>
+              <div class="classifier-legend" aria-hidden="true"><span><i></i>MSE</span><span><i></i>BCE</span></div>
+              <div class="classifier-chart" role="img" aria-label="BCE improves accuracy from 82.03 to 98.20 percent, precision from 83.33 to 97.80 percent, recall from 82.01 to 98.00 percent, and F1 score from 82.91 to 97.90 percent compared with MSE">
+                <div class="classifier-row">
+                  <span>Accuracy</span>
+                  <div><i style="--score:82.03%"></i><b>82.03</b></div>
+                  <div class="bce"><i style="--score:98.20%"></i><b>98.20</b></div>
+                </div>
+                <div class="classifier-row">
+                  <span>Precision</span>
+                  <div><i style="--score:83.33%"></i><b>83.33</b></div>
+                  <div class="bce"><i style="--score:97.80%"></i><b>97.80</b></div>
+                </div>
+                <div class="classifier-row">
+                  <span>Recall</span>
+                  <div><i style="--score:82.01%"></i><b>82.01</b></div>
+                  <div class="bce"><i style="--score:98.00%"></i><b>98.00</b></div>
+                </div>
+                <div class="classifier-row">
+                  <span>F1 score</span>
+                  <div><i style="--score:82.91%"></i><b>82.91</b></div>
+                  <div class="bce"><i style="--score:97.90%"></i><b>97.90</b></div>
+                </div>
+              </div>
+              <p class="analysis-note"><strong>98.2% accuracy</strong> lets one actor condition its behavior on the inferred joint state.</p>
+            </article>
+          </div>
+        </div>
+
         <div class="sim-comparison">
           <div class="comparison-heading reveal">
             <div>

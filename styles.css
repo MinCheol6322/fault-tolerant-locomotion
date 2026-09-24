@@ -179,6 +179,35 @@ section[id] { scroll-margin-top: 78px; }
 .table-head { color: #8397aa; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
 .table-note { margin: auto 0 0; padding-top: 28px; color: #91a4b7; font-size: 13px; line-height: 1.6; }
 
+.analysis-block { margin-top: 100px; }
+.analysis-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.analysis-card { padding: 30px; background: white; border: 1px solid var(--line); border-radius: 18px; box-shadow: 0 14px 38px rgba(17,39,62,.05); }
+.analysis-card-head { display: flex; align-items: start; justify-content: space-between; gap: 20px; padding-bottom: 26px; border-bottom: 1px solid var(--line); }
+.analysis-card-head span { color: var(--blue); font: 700 10px/1 "Manrope", sans-serif; letter-spacing: .11em; text-transform: uppercase; }
+.analysis-card-head h4 { margin: 8px 0 0; font: 700 21px/1.25 "Manrope", sans-serif; letter-spacing: -.025em; }
+.analysis-card-head small { flex: none; padding: 7px 10px; color: var(--muted); background: var(--paper); border-radius: 999px; font-size: 10px; }
+.ablation-chart { display: grid; gap: 17px; margin-top: 25px; }
+.ablation-label { display: flex; justify-content: space-between; gap: 15px; margin-bottom: 7px; font-size: 12px; }
+.ablation-label span { color: var(--muted); }
+.ablation-label strong { color: var(--ink); font-variant-numeric: tabular-nums; }
+.bar-track { height: 9px; overflow: hidden; background: #e8ece9; border-radius: 999px; }
+.bar-track i { display: block; width: var(--bar); height: 100%; background: #9cabb3; border-radius: inherit; }
+.ablation-best .ablation-label span, .ablation-best .ablation-label strong { color: #386b10; font-weight: 700; }
+.ablation-best .bar-track i { background: var(--bright); }
+.analysis-note { margin: 25px 0 0; padding-top: 20px; color: var(--muted); border-top: 1px solid var(--line); font-size: 13px; line-height: 1.55; }
+.analysis-note strong { color: var(--ink); }
+.classifier-legend { display: flex; justify-content: flex-end; gap: 14px; margin: 20px 0 14px; color: var(--muted); font-size: 10px; }
+.classifier-legend span { display: flex; align-items: center; gap: 5px; }
+.classifier-legend i { width: 8px; height: 8px; background: #aeb8bd; border-radius: 2px; }
+.classifier-legend span:last-child i { background: var(--bright); }
+.classifier-chart { display: grid; gap: 15px; }
+.classifier-row { display: grid; grid-template-columns: 68px 1fr 1fr; gap: 9px; align-items: center; }
+.classifier-row > span { color: var(--muted); font-size: 11px; }
+.classifier-row > div { position: relative; height: 25px; overflow: hidden; background: #edf0ed; border-radius: 5px; }
+.classifier-row i { position: absolute; inset: 0 auto 0 0; width: var(--score); background: #aeb8bd; }
+.classifier-row .bce i { background: var(--bright); }
+.classifier-row b { position: relative; z-index: 1; display: block; padding: 6px 7px 0; color: var(--navy); font: 700 10px/1.2 "Manrope", sans-serif; font-variant-numeric: tabular-nums; }
+
 .sim-comparison { margin-top: 100px; }
 .comparison-heading { display: grid; grid-template-columns: 1fr .8fr; gap: 70px; align-items: end; margin-bottom: 30px; }
 .comparison-heading .kicker { margin-bottom: 14px; }
@@ -230,6 +259,7 @@ footer { display: flex; justify-content: space-between; gap: 20px; padding: 30px
   .method-grid { grid-template-columns: 1fr; }
   .rpa-figure { transform: none; }
   .comparison-heading { grid-template-columns: 1fr; gap: 20px; }
+  .analysis-grid { grid-template-columns: 1fr; }
   .intro-section { gap: 22px; }
   .joint-study { grid-template-columns: 1fr; }
   .go2-overview { border-right: 0; border-bottom: 1px solid rgba(255,255,255,.1); }
@@ -266,6 +296,10 @@ footer { display: flex; justify-content: space-between; gap: 20px; padding: 30px
   .story-caption p { grid-column: 1 / -1; justify-self: center; margin-top: 4px; text-align: center; }
   .story-caption strong { font-size: 15px; }
   .table-row { grid-template-columns: 1fr 68px 58px; font-size: 13px; }
+  .analysis-card { padding: 23px 18px; }
+  .analysis-card-head { display: block; }
+  .analysis-card-head small { display: inline-block; margin-top: 11px; }
+  .classifier-row { grid-template-columns: 62px 1fr 1fr; gap: 6px; }
   footer { flex-direction: column; }
 }
 
