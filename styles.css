@@ -224,16 +224,37 @@ section[id] { scroll-margin-top: 78px; }
 .comparison-copy h4 { margin: 0; font: 700 18px/1.2 "Manrope", sans-serif; }
 .comparison-copy p { margin: 0; color: var(--muted); font-size: 13px; }
 
+.regime-showcase { margin-top: 100px; }
+.regime-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.regime-column { padding: 20px; background: #e9ede8; border: 1px solid var(--line); border-radius: 18px; }
+.regime-column-hard { background: #e7eee0; border-color: #c5d8b3; }
+.regime-title { display: flex; align-items: center; gap: 13px; margin-bottom: 18px; }
+.regime-title > span { display: grid; width: 35px; aspect-ratio: 1; place-items: center; color: var(--navy); background: var(--bright); border-radius: 50%; font: 800 10px/1 "Manrope", sans-serif; }
+.regime-title small { color: var(--blue); font: 700 9px/1 "Manrope", sans-serif; letter-spacing: .1em; text-transform: uppercase; }
+.regime-title h4 { margin: 4px 0 0; font: 700 17px/1.2 "Manrope", sans-serif; }
+.mini-video-card { overflow: hidden; margin-top: 12px; background: white; border: 1px solid rgba(7,31,59,.09); border-radius: 12px; }
+.mini-video-card video { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: var(--navy); }
+.mini-video-card > div { display: flex; justify-content: space-between; gap: 12px; padding: 13px 14px 14px; }
+.mini-video-card strong { font: 700 13px/1.25 "Manrope", sans-serif; }
+.mini-video-card span { color: var(--muted); font-size: 10px; text-align: right; }
+
 .real-section { color: white; background: #05182d; }
 .heading-light h2 { color: white; }
 .heading-light > p:last-child { color: #9eb0c1; }
+.real-regime { padding-top: 38px; margin-top: 42px; border-top: 1px solid rgba(255,255,255,.12); }
+.section-heading + .real-regime { margin-top: 0; }
+.real-regime-heading { display: grid; grid-template-columns: 48px 1fr; gap: 16px; align-items: start; margin-bottom: 22px; }
+.real-regime-heading > span { display: grid; width: 40px; aspect-ratio: 1; place-items: center; color: var(--navy); background: var(--bright); border-radius: 50%; font: 800 11px/1 "Manrope", sans-serif; }
+.real-regime-heading small { color: var(--bright-soft); font: 700 9px/1 "Manrope", sans-serif; letter-spacing: .11em; text-transform: uppercase; }
+.real-regime-heading h3 { margin: 6px 0 4px; font: 700 24px/1.2 "Manrope", sans-serif; }
+.real-regime-heading p { margin: 0; color: #8fa3b6; font-size: 13px; }
 .experiment-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+.experiment-grid-three { grid-template-columns: repeat(3, 1fr); }
 .experiment-card { overflow: hidden; background: #0c2947; border: 1px solid rgba(255,255,255,.1); border-radius: 17px; transition: transform .25s ease, border-color .25s ease; }
 .experiment-card:hover { transform: translateY(-4px); border-color: rgba(141,216,61,.5); }
 .experiment-card img,
-.experiment-card video { width: 100%; aspect-ratio: 2.35; object-fit: cover; background: #071f3b; }
-.experiment-card div { position: relative; padding: 23px 25px 25px 63px; }
-.experiment-card span { position: absolute; left: 24px; top: 28px; color: var(--bright); font: 700 11px/1 "Manrope", sans-serif; }
+.experiment-card video { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: #071f3b; }
+.experiment-card div { position: relative; padding: 19px 22px 21px; }
 .experiment-card h3 { margin: 0 0 6px; font: 700 20px/1.2 "Manrope", sans-serif; }
 .experiment-card p { margin: 0; color: #8fa3b6; font-size: 14px; }
 
@@ -260,6 +281,8 @@ footer { display: flex; justify-content: space-between; gap: 20px; padding: 30px
   .rpa-figure { transform: none; }
   .comparison-heading { grid-template-columns: 1fr; gap: 20px; }
   .analysis-grid { grid-template-columns: 1fr; }
+  .regime-grid { grid-template-columns: 1fr; }
+  .experiment-grid-three { grid-template-columns: 1fr 1fr; }
   .intro-section { gap: 22px; }
   .joint-study { grid-template-columns: 1fr; }
   .go2-overview { border-right: 0; border-bottom: 1px solid rgba(255,255,255,.1); }
@@ -282,6 +305,7 @@ footer { display: flex; justify-content: space-between; gap: 20px; padding: 30px
   .metric { border-right: 0; border-bottom: 1px solid var(--line); }
   .metric:last-child { border-bottom: 0; }
   .experiment-grid { grid-template-columns: 1fr; }
+  .experiment-grid-three { grid-template-columns: 1fr; }
   .comparison-grid { grid-template-columns: 1fr; }
   .comparison-copy { display: block; }
   .comparison-copy p { margin-top: 5px; }
