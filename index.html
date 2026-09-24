@@ -142,12 +142,12 @@
                     <g class="motor motor-kp"><circle cx="111" cy="236" r="14" /><circle class="motor-ring" cx="111" cy="236" r="22" /><text x="128" y="241">Knee-pitch</text><path d="M131 236h92" /></g>
                   </svg>
 
-                  <div class="learning-bars" aria-label="Different learning returns under uniform sampling">
-                    <p class="bars-title">Uniform allocation</p>
-                    <div class="learning-row row-hr"><span>Hip-roll loss</span><div><i></i></div></div>
-                    <div class="learning-row row-hp"><span>Hip-pitch loss</span><div><i></i></div></div>
-                    <div class="learning-row row-kp"><span>Knee-pitch loss</span><div><i></i></div></div>
-                    <p class="bars-note">Equal environments <strong>≠</strong> equal learning progress</p>
+                  <div class="learning-bars" aria-label="Joint failures are treated as separate allocation categories">
+                    <p class="bars-title">Failure categories</p>
+                    <div class="learning-row"><span>Hip-roll loss</span><strong>HR</strong></div>
+                    <div class="learning-row"><span>Hip-pitch loss</span><strong>HP</strong></div>
+                    <div class="learning-row"><span>Knee-pitch loss</span><strong>KP</strong></div>
+                    <p class="bars-note">Each joint–leg pairing is allocated independently from its measured return.</p>
                   </div>
                 </div>
               </div>
@@ -269,44 +269,6 @@
           </div>
         </div>
 
-        <div class="data-evidence">
-          <div class="evidence-heading reveal">
-            <div>
-              <p class="kicker">Released-data analysis</p>
-              <h3>155 evaluations. One consistent robustness profile.</h3>
-            </div>
-            <p>
-              We re-aggregated every complete terrain–failure trace in the released CSV data:
-              five non-flat terrains, twelve single-joint failures, and eighteen diagonal
-              two-joint failures. Every point below is shown—outliers included.
-            </p>
-          </div>
-
-          <div class="evidence-stats" aria-label="Released data summary">
-            <article class="reveal"><strong>155</strong><span>total evaluations</span><small>5 terrains × 31 conditions</small></article>
-            <article class="reveal"><strong>30</strong><span>fault configurations</span><small>12 single + 18 diagonal</small></article>
-            <article class="reveal"><strong>90.7%</strong><span>below 0.35 RMSE</span><small>136 of 150 faulted evaluations</small></article>
-            <article class="reveal"><strong>0.346</strong><span>faulted RMSE at P90</span><small>90% perform at or below this level</small></article>
-          </div>
-
-          <div class="evidence-plots">
-            <figure class="data-plot reveal">
-              <div class="plot-label"><span>01</span><strong>Every evaluation, not only the average</strong></div>
-              <img src="assets/images/data-rmse-distribution.svg" alt="Distribution of tracking RMSE for normal, single-joint, and diagonal two-joint conditions across 155 evaluations" loading="lazy" />
-              <figcaption>Dots are individual terrain–failure evaluations; dark marks show the median and 10th–90th percentile range.</figcaption>
-            </figure>
-            <figure class="data-plot reveal">
-              <div class="plot-label"><span>02</span><strong>Performance remains structured across terrain</strong></div>
-              <img src="assets/images/data-terrain-heatmap.svg" alt="Heatmap of median tracking RMSE by terrain and failure severity" loading="lazy" />
-              <figcaption>Median RMSE computed directly from the provided CSV footers. Lower is better.</figcaption>
-            </figure>
-          </div>
-
-          <p class="data-provenance reveal">
-            Source: <code>paper/data/rmse</code>. Flat-ground files use a different recording layout and are reported separately in the paper table above.
-          </p>
-        </div>
-
         <div class="sim-comparison">
           <div class="comparison-heading reveal">
             <div>
@@ -314,8 +276,8 @@
               <h3>Same failure. Same stairs. Different outcome.</h3>
             </div>
             <p>
-              Stair ascent under a front-right knee-pitch torque loss. Baselines lose balance near
-              the first step, while our unified policy recovers and completes the ascent.
+              Stair ascent under a front-right knee-pitch torque loss. Baselines lose balance while
+              traversing the stair discontinuities, while our unified policy completes the ascent.
             </p>
           </div>
 
@@ -385,16 +347,16 @@
               <div><span>02</span><h3>Uneven wooden planks</h3><p>Front-left hip-pitch loss · abrupt footholds</p></div>
             </article>
             <article class="experiment-card reveal">
-              <video class="result-video" muted loop playsinline preload="metadata" poster="assets/images/seesaw.jpg" aria-label="Robot traversing a dynamic seesaw under a diagonal two-joint failure">
+              <video class="result-video" muted loop playsinline preload="metadata" poster="assets/images/seesaw.jpg" aria-label="Robot traversing a dynamic seesaw under a front-left hip-roll failure">
                 <source src="assets/videos/seesaw.mp4" type="video/mp4" />
               </video>
-              <div><span>03</span><h3>Dynamic seesaw</h3><p>Diagonal two-joint loss · moving support</p></div>
+              <div><span>03</span><h3>Dynamic seesaw</h3><p>Front-left hip-roll loss · moving support</p></div>
             </article>
             <article class="experiment-card reveal">
-              <video class="result-video" muted loop playsinline preload="metadata" poster="assets/images/stairs.jpg" aria-label="Robot climbing outdoor stairs under a diagonal two-joint failure">
+              <video class="result-video" muted loop playsinline preload="metadata" poster="assets/images/stairs.jpg" aria-label="Robot climbing outdoor stairs under front-left and rear-right knee-pitch failures">
                 <source src="assets/videos/stairs.mp4" type="video/mp4" />
               </video>
-              <div><span>04</span><h3>Outdoor stairs</h3><p>FL hip-roll + RR knee-pitch loss</p></div>
+              <div><span>04</span><h3>Outdoor stairs</h3><p>FL + RR knee-pitch loss</p></div>
             </article>
           </div>
         </div>
