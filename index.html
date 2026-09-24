@@ -108,78 +108,55 @@
             <span>One unified policy</span>
           </div>
 
-          <div class="fault-story" aria-label="Animation showing normal locomotion, joint failure, and adaptive recovery">
+          <div class="fault-story" aria-label="Unitree Go2 joint failure locations and their different learning difficulty">
             <div class="story-topline">
-              <span><i></i> Failure-aware locomotion</span>
-              <span>Online adaptation</span>
+              <span><i></i> Why adaptive sampling?</span>
+              <span>Unitree Go2 · 12 actuated joints</span>
             </div>
-            <div class="story-track">
-              <article class="story-step story-normal">
-                <div class="step-meta"><span>01</span><strong>Normal</strong></div>
-                <svg viewBox="0 0 240 130" aria-hidden="true">
-                  <path class="terrain-line" d="M12 105H228" />
-                  <g class="mini-robot robot-normal">
-                    <rect class="robot-body" x="77" y="42" width="86" height="35" rx="13" />
-                    <circle class="robot-sensor" cx="151" cy="54" r="4" />
-                    <path class="robot-leg leg-a" d="M90 70 72 91 58 105M108 72 101 94 94 105" />
-                    <path class="robot-leg leg-b" d="M145 72 157 92 169 105M158 68 181 88 192 105" />
-                    <circle class="joint-ok" cx="90" cy="70" r="5" />
-                    <circle class="joint-ok" cx="108" cy="72" r="5" />
-                    <circle class="joint-ok" cx="145" cy="72" r="5" />
-                    <circle class="joint-ok" cx="158" cy="68" r="5" />
-                  </g>
-                </svg>
-                <p>All joints available</p>
-              </article>
+            <div class="joint-study">
+              <figure class="go2-overview">
+                <div class="go2-image-wrap">
+                  <img src="assets/images/go2-cutout.png" alt="Unitree Go2 quadruped robot" loading="lazy" />
+                  <span class="go2-ring" aria-hidden="true"></span>
+                  <span class="go2-tag">One affected leg</span>
+                </div>
+                <figcaption>
+                  <strong>One robot, many failure conditions</strong>
+                  <span>A failed motor becomes passive while the remaining joints must reorganize locomotion.</span>
+                </figcaption>
+              </figure>
 
-              <span class="story-arrow" aria-hidden="true">→</span>
+              <div class="leg-study">
+                <div class="leg-heading">
+                  <span>Single-leg view</span>
+                  <strong>Failure location changes learning difficulty</strong>
+                </div>
+                <div class="leg-detail">
+                  <svg class="leg-diagram" viewBox="0 0 240 320" role="img" aria-label="One Go2 leg with hip-roll, hip-pitch, and knee-pitch motors">
+                    <path class="leg-mount" d="M42 36H138V74H42Z" />
+                    <path class="leg-link" d="M126 70 158 141 112 236 151 286" />
+                    <path class="leg-inner" d="M103 77 124 140 83 226" />
+                    <path class="leg-foot" d="M145 286h35" />
+                    <g class="motor motor-hr"><circle cx="105" cy="67" r="14" /><circle class="motor-ring" cx="105" cy="67" r="22" /><text x="14" y="72">Hip-roll</text><path d="M67 67H85" /></g>
+                    <g class="motor motor-hp"><circle cx="155" cy="140" r="14" /><circle class="motor-ring" cx="155" cy="140" r="22" /><text x="166" y="145">Hip-pitch</text><path d="M175 140h48" /></g>
+                    <g class="motor motor-kp"><circle cx="111" cy="236" r="14" /><circle class="motor-ring" cx="111" cy="236" r="22" /><text x="128" y="241">Knee-pitch</text><path d="M131 236h92" /></g>
+                  </svg>
 
-              <article class="story-step story-failure">
-                <div class="step-meta"><span>02</span><strong>Torque loss</strong></div>
-                <svg viewBox="0 0 240 130" aria-hidden="true">
-                  <path class="terrain-line terrain-rough" d="M12 105 50 105 64 97 91 105 119 91 145 105 174 96 196 105H228" />
-                  <g class="mini-robot robot-failure">
-                    <rect class="robot-body" x="77" y="44" width="86" height="35" rx="13" />
-                    <circle class="robot-sensor" cx="151" cy="56" r="4" />
-                    <path class="robot-leg" d="M90 72 72 91 58 105M108 74 101 94 94 105M145 74 157 92 169 105" />
-                    <path class="robot-leg failed-leg" d="M158 70 177 84 185 92" />
-                    <circle class="joint-ok" cx="90" cy="72" r="5" />
-                    <circle class="joint-ok" cx="108" cy="74" r="5" />
-                    <circle class="joint-ok" cx="145" cy="74" r="5" />
-                    <circle class="joint-failed" cx="158" cy="70" r="7" />
-                    <circle class="failure-ring" cx="158" cy="70" r="13" />
-                  </g>
-                </svg>
-                <p>FR knee-pitch disabled</p>
-              </article>
-
-              <span class="story-arrow" aria-hidden="true">→</span>
-
-              <article class="story-step story-recovery">
-                <div class="step-meta"><span>03</span><strong>Recover</strong></div>
-                <svg viewBox="0 0 240 130" aria-hidden="true">
-                  <path class="terrain-line terrain-stairs" d="M10 110H70V98H112V86H154V74H230" />
-                  <g class="balance-signal">
-                    <path d="M75 34C97 20 139 18 166 34" />
-                    <circle cx="75" cy="34" r="3" /><circle cx="166" cy="34" r="3" />
-                  </g>
-                  <g class="mini-robot robot-recovery">
-                    <rect class="robot-body" x="78" y="43" width="86" height="35" rx="13" />
-                    <circle class="robot-sensor" cx="152" cy="55" r="4" />
-                    <path class="robot-leg leg-a" d="M91 71 76 89 66 98M109 73 104 91 98 98" />
-                    <path class="robot-leg leg-b" d="M146 73 158 82 169 86M159 69 180 76 191 74" />
-                    <circle class="joint-adapt" cx="91" cy="71" r="5" />
-                    <circle class="joint-adapt" cx="109" cy="73" r="5" />
-                    <circle class="joint-adapt" cx="146" cy="73" r="5" />
-                    <circle class="joint-failed" cx="159" cy="69" r="5" />
-                  </g>
-                </svg>
-                <p>Load redistributed</p>
-              </article>
+                  <div class="learning-bars" aria-label="Different learning returns under uniform sampling">
+                    <p class="bars-title">Uniform allocation</p>
+                    <div class="learning-row row-hr"><span>Hip-roll loss</span><div><i></i></div></div>
+                    <div class="learning-row row-hp"><span>Hip-pitch loss</span><div><i></i></div></div>
+                    <div class="learning-row row-kp"><span>Knee-pitch loss</span><div><i></i></div></div>
+                    <p class="bars-note">Equal environments <strong>≠</strong> equal learning progress</p>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="story-caption">
-              <strong>One policy.</strong>
-              <span>Multiple failures · no policy switching</span>
+              <div><span>Uniform sampling</span><strong>11.7–24.2</strong><small>return range</small></div>
+              <span class="caption-arrow" aria-hidden="true">→</span>
+              <div><span>With RPA</span><strong>22.8–23.3</strong><small>balanced range</small></div>
+              <p>More training is assigned where the policy struggles.</p>
             </div>
           </div>
         </div>

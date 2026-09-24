@@ -100,39 +100,56 @@ a { color: inherit; text-decoration: none; }
 .story-topline { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 17px 21px; color: #8399ad; border-bottom: 1px solid rgba(255,255,255,.1); font: 700 10px/1 "Manrope", sans-serif; letter-spacing: .11em; text-transform: uppercase; }
 .story-topline span:first-child { display: flex; align-items: center; gap: 9px; color: #c7d3df; }
 .story-topline i { width: 7px; height: 7px; background: var(--bright); border-radius: 50%; box-shadow: 0 0 0 5px rgba(141,216,61,.12); animation: story-live 1.8s ease-in-out infinite; }
-.story-track { display: grid; grid-template-columns: 1fr 30px 1fr 30px 1fr; align-items: center; gap: 5px; padding: 24px; }
-.story-step { position: relative; overflow: hidden; background: rgba(255,255,255,.045); border: 1px solid rgba(255,255,255,.1); border-radius: 14px; animation: story-focus 7.2s ease-in-out infinite; }
-.story-step:nth-of-type(2) { animation-delay: 2.4s; }
-.story-step:nth-of-type(3) { animation-delay: 4.8s; }
-.step-meta { display: flex; align-items: center; justify-content: space-between; padding: 15px 16px 0; }
-.step-meta span { color: #7890a6; font: 700 10px/1 "Manrope", sans-serif; }
-.step-meta strong { font: 700 13px/1 "Manrope", sans-serif; }
-.story-step svg { display: block; width: 100%; }
-.story-step > p { margin: -5px 16px 16px; color: #8399ad; font-size: 11px; }
-.story-arrow { color: var(--bright); text-align: center; animation: arrow-flow 1.2s ease-in-out infinite; }
-.terrain-line { fill: none; stroke: #5b7186; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
-.robot-body { fill: #e9eff2; stroke: #fff; stroke-width: 2; }
-.robot-sensor { fill: var(--blue); }
-.robot-leg { fill: none; stroke: #becbd4; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
-.joint-ok { fill: #b9c8d1; }
-.joint-failed { fill: #ff695f; }
-.failed-leg { stroke: #6f7780; stroke-dasharray: 7 6; }
-.failure-ring { fill: none; stroke: #ff695f; stroke-width: 2; animation: failure-pulse 1.4s ease-out infinite; transform-box: fill-box; transform-origin: center; }
-.joint-adapt { fill: var(--bright); filter: drop-shadow(0 0 5px rgba(141,216,61,.7)); }
-.balance-signal { fill: var(--bright); stroke: var(--bright); stroke-width: 2; stroke-linecap: round; opacity: .7; animation: signal-flow 1.8s ease-in-out infinite; }
-.balance-signal path { fill: none; stroke-dasharray: 8 6; }
-.robot-normal, .robot-recovery { transform-box: fill-box; transform-origin: center; animation: robot-step 1.15s ease-in-out infinite; }
-.robot-failure { transform-box: fill-box; transform-origin: center; animation: robot-stumble 2.4s ease-in-out infinite; }
-.story-caption { display: flex; align-items: baseline; justify-content: center; gap: 10px; padding: 18px 24px 20px; background: rgba(255,255,255,.045); border-top: 1px solid rgba(255,255,255,.1); }
-.story-caption strong { color: var(--bright); font: 700 18px/1 "Manrope", sans-serif; }
-.story-caption span { color: #9bafc0; font-size: 13px; }
+.joint-study { display: grid; grid-template-columns: .9fr 1.1fr; min-height: 390px; }
+.go2-overview { display: flex; flex-direction: column; justify-content: center; margin: 0; padding: 28px; border-right: 1px solid rgba(255,255,255,.1); background: radial-gradient(circle at 50% 45%, rgba(71,125,173,.2), transparent 60%); }
+.go2-image-wrap { position: relative; }
+.go2-image-wrap img { width: 100%; filter: drop-shadow(0 24px 22px rgba(0,0,0,.28)); animation: go2-float 3.6s ease-in-out infinite; }
+.go2-ring { position: absolute; left: 45%; top: 40%; width: 38px; aspect-ratio: 1; border: 2px solid #ff695f; border-radius: 50%; animation: joint-pulse 2s ease-out infinite; }
+.go2-tag { position: absolute; left: 52%; top: 30%; padding: 6px 9px; color: #ffc1bd; background: rgba(80,18,20,.72); border: 1px solid rgba(255,105,95,.45); border-radius: 999px; font-size: 10px; white-space: nowrap; }
+.go2-overview figcaption { display: grid; gap: 6px; margin-top: 8px; }
+.go2-overview figcaption strong { font: 700 16px/1.2 "Manrope", sans-serif; }
+.go2-overview figcaption span { color: #8fa3b6; font-size: 12px; line-height: 1.55; }
+.leg-study { padding: 29px 27px 24px; }
+.leg-heading { display: grid; gap: 7px; }
+.leg-heading span, .bars-title { margin: 0; color: var(--bright); font: 700 10px/1 "Manrope", sans-serif; letter-spacing: .1em; text-transform: uppercase; }
+.leg-heading strong { max-width: 430px; font: 700 20px/1.25 "Manrope", sans-serif; }
+.leg-detail { display: grid; grid-template-columns: .9fr 1.1fr; align-items: center; gap: 17px; margin-top: 12px; }
+.leg-diagram { width: 100%; max-height: 270px; }
+.leg-mount { fill: #aebbc5; }
+.leg-link, .leg-inner, .leg-foot { fill: none; stroke: #dce4e9; stroke-width: 17; stroke-linecap: round; stroke-linejoin: round; }
+.leg-inner { stroke: #9dafbb; stroke-width: 8; }
+.leg-foot { stroke: #8699a7; stroke-width: 10; }
+.motor circle:first-child { fill: #ff695f; stroke: #ffd1ce; stroke-width: 3; }
+.motor path { fill: none; stroke: #768b9d; stroke-width: 1.5; }
+.motor text { fill: #c8d5df; font: 700 12px "Manrope", sans-serif; }
+.motor-ring { fill: none; stroke: #ff695f; stroke-width: 2; transform-box: fill-box; transform-origin: center; animation: motor-cycle 6s ease-out infinite; }
+.motor-hp .motor-ring { animation-delay: 2s; }
+.motor-kp .motor-ring { animation-delay: 4s; }
+.learning-bars { display: grid; gap: 15px; padding: 20px; background: rgba(255,255,255,.045); border: 1px solid rgba(255,255,255,.09); border-radius: 13px; }
+.learning-row { display: grid; gap: 7px; animation: row-cycle 6s ease-in-out infinite; }
+.learning-row:nth-of-type(2) { animation-delay: 2s; }
+.learning-row:nth-of-type(3) { animation-delay: 4s; }
+.learning-row > span { color: #b8c6d1; font-size: 11px; }
+.learning-row > div { height: 7px; overflow: hidden; background: rgba(255,255,255,.09); border-radius: 999px; }
+.learning-row i { display: block; height: 100%; background: #5f85b0; border-radius: inherit; transform-origin: left; animation: bar-breathe 2s ease-in-out infinite; }
+.row-hr i { width: 43%; }
+.row-hp i { width: 86%; }
+.row-kp i { width: 68%; }
+.bars-note { margin: 2px 0 0; color: #8297aa; font-size: 10px; line-height: 1.45; }
+.bars-note strong { color: #ff8a82; }
+.story-caption { display: grid; grid-template-columns: auto 35px auto 1fr; align-items: center; gap: 15px; padding: 18px 24px 20px; background: rgba(255,255,255,.045); border-top: 1px solid rgba(255,255,255,.1); }
+.story-caption > div { display: grid; grid-template-columns: auto auto; align-items: baseline; column-gap: 7px; }
+.story-caption > div span { grid-column: 1 / -1; color: #8196aa; font-size: 9px; letter-spacing: .08em; text-transform: uppercase; }
+.story-caption strong { color: white; font: 700 18px/1.3 "Manrope", sans-serif; }
+.story-caption small { color: #8fa3b6; font-size: 10px; }
+.story-caption .caption-arrow { color: var(--bright); text-align: center; }
+.story-caption p { justify-self: end; margin: 0; color: var(--bright-soft); font-size: 12px; }
 @keyframes story-live { 50% { opacity: .45; transform: scale(.72); } }
-@keyframes story-focus { 0%, 29%, 100% { border-color: rgba(255,255,255,.1); box-shadow: none; } 8%, 22% { border-color: rgba(141,216,61,.58); box-shadow: 0 0 0 1px rgba(141,216,61,.12), 0 10px 28px rgba(0,0,0,.2); } }
-@keyframes arrow-flow { 50% { color: var(--bright-soft); transform: translateX(4px); } }
-@keyframes failure-pulse { 80%, 100% { opacity: 0; transform: scale(1.9); } }
-@keyframes signal-flow { 50% { opacity: 1; transform: translateY(-3px); } }
-@keyframes robot-step { 50% { transform: translateY(-3px) rotate(-1deg); } }
-@keyframes robot-stumble { 38%, 62% { transform: translateY(4px) rotate(5deg); } }
+@keyframes go2-float { 50% { transform: translateY(-5px); } }
+@keyframes joint-pulse { 75%, 100% { opacity: 0; transform: scale(1.65); } }
+@keyframes motor-cycle { 0%, 22% { opacity: 1; transform: scale(1); } 33%, 100% { opacity: 0; transform: scale(1.75); } }
+@keyframes row-cycle { 0%, 24% { opacity: 1; transform: translateX(3px); } 34%, 100% { opacity: .45; transform: none; } }
+@keyframes bar-breathe { 50% { filter: brightness(1.35); } }
 section[id] { scroll-margin-top: 78px; }
 
 .metrics-wrap { padding-top: 0; padding-bottom: 110px; }
@@ -227,6 +244,9 @@ footer { display: flex; justify-content: space-between; gap: 20px; padding: 30px
   .rpa-figure { transform: none; }
   .comparison-heading { grid-template-columns: 1fr; gap: 20px; }
   .intro-section { gap: 22px; }
+  .joint-study { grid-template-columns: 1fr; }
+  .go2-overview { border-right: 0; border-bottom: 1px solid rgba(255,255,255,.1); }
+  .go2-image-wrap { max-width: 480px; margin-inline: auto; }
 }
 
 @media (max-width: 560px) {
@@ -250,10 +270,14 @@ footer { display: flex; justify-content: space-between; gap: 20px; padding: 30px
   .comparison-copy p { margin-top: 5px; }
   .fault-story { margin-top: 34px; }
   .story-topline span:last-child { display: none; }
-  .story-track { grid-template-columns: 1fr; padding: 17px; }
-  .story-arrow { transform: rotate(90deg); }
-  .story-step svg { max-height: 145px; }
-  .story-caption { align-items: center; flex-direction: column; gap: 7px; text-align: center; }
+  .go2-overview { padding: 20px; }
+  .go2-tag { left: 48%; top: 25%; }
+  .leg-study { padding: 24px 18px 20px; }
+  .leg-detail { grid-template-columns: 1fr; }
+  .leg-diagram { max-height: 245px; }
+  .story-caption { grid-template-columns: 1fr 22px 1fr; gap: 8px; padding-inline: 16px; }
+  .story-caption p { grid-column: 1 / -1; justify-self: center; margin-top: 4px; text-align: center; }
+  .story-caption strong { font-size: 15px; }
   .table-row { grid-template-columns: 1fr 68px 58px; font-size: 13px; }
   footer { flex-direction: column; }
 }
