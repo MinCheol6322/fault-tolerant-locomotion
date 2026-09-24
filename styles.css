@@ -114,17 +114,10 @@ a { color: inherit; text-decoration: none; }
 .leg-heading span, .bars-title { margin: 0; color: var(--bright); font: 700 10px/1 "Manrope", sans-serif; letter-spacing: .1em; text-transform: uppercase; }
 .leg-heading strong { max-width: 430px; font: 700 20px/1.25 "Manrope", sans-serif; }
 .leg-detail { display: grid; grid-template-columns: .9fr 1.1fr; align-items: center; gap: 17px; margin-top: 12px; }
-.leg-diagram { width: 100%; max-height: 270px; }
-.leg-mount { fill: #aebbc5; }
-.leg-link, .leg-inner, .leg-foot { fill: none; stroke: #dce4e9; stroke-width: 17; stroke-linecap: round; stroke-linejoin: round; }
-.leg-inner { stroke: #9dafbb; stroke-width: 8; }
-.leg-foot { stroke: #8699a7; stroke-width: 10; }
-.motor circle:first-child { fill: #ff695f; stroke: #ffd1ce; stroke-width: 3; }
-.motor path { fill: none; stroke: #768b9d; stroke-width: 1.5; }
-.motor text { fill: #c8d5df; font: 700 12px "Manrope", sans-serif; }
-.motor-ring { fill: none; stroke: #ff695f; stroke-width: 2; transform-box: fill-box; transform-origin: center; animation: motor-cycle 6s ease-out infinite; }
-.motor-hp .motor-ring { animation-delay: 2s; }
-.motor-kp .motor-ring { animation-delay: 4s; }
+.leg-visual { display: grid; justify-items: center; gap: 7px; margin: 0; padding: 10px 10px 8px; background: #edf1ef; border: 1px solid rgba(255,255,255,.2); border-radius: 12px; }
+.leg-visual img { width: auto; max-width: 100%; height: 265px; object-fit: contain; filter: drop-shadow(0 14px 13px rgba(0,0,0,.28)); animation: go2-float 3.6s ease-in-out infinite; }
+.leg-visual figcaption { display: flex; align-items: center; gap: 7px; color: #536576; font-size: 9px; letter-spacing: .04em; text-transform: uppercase; }
+.leg-visual figcaption span { width: 6px; height: 6px; background: #ff695f; border-radius: 50%; box-shadow: 0 0 0 4px rgba(255,105,95,.12); }
 .learning-bars { display: grid; gap: 15px; padding: 20px; background: rgba(255,255,255,.045); border: 1px solid rgba(255,255,255,.09); border-radius: 13px; }
 .learning-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-bottom: 9px; border-bottom: 1px solid rgba(255,255,255,.08); animation: row-cycle 6s ease-in-out infinite; }
 .learning-row:nth-of-type(2) { animation-delay: 2s; }
@@ -143,7 +136,6 @@ a { color: inherit; text-decoration: none; }
 @keyframes story-live { 50% { opacity: .45; transform: scale(.72); } }
 @keyframes go2-float { 50% { transform: translateY(-5px); } }
 @keyframes joint-pulse { 75%, 100% { opacity: 0; transform: scale(1.65); } }
-@keyframes motor-cycle { 0%, 22% { opacity: 1; transform: scale(1); } 33%, 100% { opacity: 0; transform: scale(1.75); } }
 @keyframes row-cycle { 0%, 24% { opacity: 1; transform: translateX(3px); } 34%, 100% { opacity: .45; transform: none; } }
 section[id] { scroll-margin-top: 78px; }
 
@@ -269,7 +261,7 @@ footer { display: flex; justify-content: space-between; gap: 20px; padding: 30px
   .go2-tag { left: 48%; top: 25%; }
   .leg-study { padding: 24px 18px 20px; }
   .leg-detail { grid-template-columns: 1fr; }
-  .leg-diagram { max-height: 245px; }
+  .leg-visual img { height: 285px; }
   .story-caption { grid-template-columns: 1fr 22px 1fr; gap: 8px; padding-inline: 16px; }
   .story-caption p { grid-column: 1 / -1; justify-self: center; margin-top: 4px; text-align: center; }
   .story-caption strong { font-size: 15px; }
