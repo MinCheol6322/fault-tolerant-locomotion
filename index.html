@@ -216,6 +216,58 @@
             <p class="table-note">A single actor is used for every condition without switching to a failure-specific controller.</p>
           </div>
         </div>
+
+        <div class="sim-comparison">
+          <div class="comparison-heading reveal">
+            <div>
+              <p class="kicker">Qualitative comparison</p>
+              <h3>Same failure. Same stairs. Different outcome.</h3>
+            </div>
+            <p>
+              Stair ascent under a front-right knee-pitch torque loss. Baselines lose balance near
+              the first step, while our unified policy recovers and completes the ascent.
+            </p>
+          </div>
+
+          <div class="comparison-grid">
+            <article class="comparison-card reveal">
+              <div class="comparison-media">
+                <video class="result-video" muted loop playsinline preload="metadata" poster="assets/images/sim-ftnet.jpg" aria-label="FT-NET simulation during stair ascent with a front-right knee-pitch torque loss">
+                  <source src="assets/videos/sim-ftnet.mp4" type="video/mp4" />
+                </video>
+                <span class="outcome outcome-fail">Balance lost</span>
+              </div>
+              <div class="comparison-copy"><h4>FT-NET</h4><p>Failure-conditioned baseline</p></div>
+            </article>
+            <article class="comparison-card reveal">
+              <div class="comparison-media">
+                <video class="result-video" muted loop playsinline preload="metadata" poster="assets/images/sim-fmt.jpg" aria-label="FMT simulation during stair ascent with a front-right knee-pitch torque loss">
+                  <source src="assets/videos/sim-fmt.mp4" type="video/mp4" />
+                </video>
+                <span class="outcome outcome-fail">Balance lost</span>
+              </div>
+              <div class="comparison-copy"><h4>FMT</h4><p>Failure-mode transfer baseline</p></div>
+            </article>
+            <article class="comparison-card reveal">
+              <div class="comparison-media">
+                <video class="result-video" muted loop playsinline preload="metadata" poster="assets/images/sim-masking.jpg" aria-label="Masking simulation during stair ascent with a front-right knee-pitch torque loss">
+                  <source src="assets/videos/sim-masking.mp4" type="video/mp4" />
+                </video>
+                <span class="outcome outcome-fail">Balance lost</span>
+              </div>
+              <div class="comparison-copy"><h4>Masking</h4><p>Action-masking baseline</p></div>
+            </article>
+            <article class="comparison-card comparison-card-ours reveal">
+              <div class="comparison-media">
+                <video class="result-video" muted loop playsinline preload="metadata" poster="assets/images/sim-ours.jpg" aria-label="Our method completing stair ascent with a front-right knee-pitch torque loss">
+                  <source src="assets/videos/sim-ours.mp4" type="video/mp4" />
+                </video>
+                <span class="outcome outcome-success">Ascent completed</span>
+              </div>
+              <div class="comparison-copy"><h4>Ours</h4><p>Unified fault-tolerant policy</p></div>
+            </article>
+          </div>
+        </div>
       </section>
 
       <section id="real-world" class="real-section">
